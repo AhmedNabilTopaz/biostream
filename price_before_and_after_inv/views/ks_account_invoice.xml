@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+
+        <record id="product_price_before_invoice_view_form" model="ir.ui.view">
+            <field name="name">product.price.account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="before">
+                <field name="default_product_price" invisible="0"/>
+            </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="after">
+                <field name="price_diff" invisible="0" sum="Total"/>
+            </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
