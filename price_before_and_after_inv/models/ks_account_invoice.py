@@ -2,6 +2,12 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 
 
+class AccountMove(models.Model):
+
+    _inherit = "account.move"
+
+    show_tax = fields.Boolean(string="Show Tax")
+
 class AccountMoveLine(models.Model):
 
     _inherit = "account.move.line"

@@ -6,12 +6,19 @@
             <field name="model">account.move</field>
             <field name="inherit_id" ref="account.view_move_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//group[@id='header_right_group']" position="after">
+                    <group>
+                    <field name="show_tax" invisible="0"/>
+                    </group>
+
+                </xpath>
+
                 <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="before">
-                <field name="default_product_price" invisible="0"/>
-            </xpath>
+                    <field name="default_product_price" invisible="0"/>
+                </xpath>
                 <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="after">
-                <field name="price_diff" invisible="0" sum="Total"/>
-            </xpath>
+                    <field name="price_diff" invisible="0" sum="Total"/>
+                </xpath>
             </field>
         </record>
 
