@@ -289,14 +289,14 @@
         </t>
 
         <!--Total pricelist discount-->
-        <tr t-if="o.show_tax" class="border-black">
-            <td>
-                <strong>Discount</strong>
-            </td>
-            <td class="text-right">
-                <t t-esc="sum([line.price_diff for line in o.invoice_line_ids])"/>
-            </td>
-        </tr>
+<!--        <tr class="border-black">-->
+<!--            <td>-->
+<!--                <strong>Discount</strong>-->
+<!--            </td>-->
+<!--            <td class="text-right">-->
+<!--                <t t-esc="sum([line.price_diff for line in o.invoice_line_ids])"/>-->
+<!--            </td>-->
+<!--        </tr>-->
 
         <!--Total amount with all taxes-->
         <tr class="border-black o_total">

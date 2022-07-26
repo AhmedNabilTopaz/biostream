@@ -2,6 +2,13 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 
 
+class SaleOrder(models.Model):
+
+    _inherit = "sale.order"
+
+    show_tax = fields.Boolean(string="Show Tax")
+
+
 class AccountMove(models.Model):
 
     _inherit = "account.move"

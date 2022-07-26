@@ -14,7 +14,7 @@
 
     'license': 'LGPL-3',
     'currency': 'EUR',
-    'depends': ['base', 'account', ],
+    'depends': ['base', 'account','sale' ],
 
 
     'data': [
