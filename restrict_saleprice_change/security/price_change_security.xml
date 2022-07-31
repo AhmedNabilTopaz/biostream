@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="groups_restrict_price_change" model="res.groups">
+        <field name="name">Manage Sales Price Change</field>
+    </record>
+
+    <record id="groups_so_set_draft" model="res.groups">
+        <field name="name">SO Set Draft</field>
+    </record>
+
+</odoo>
