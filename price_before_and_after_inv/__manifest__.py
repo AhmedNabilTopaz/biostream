@@ -20,6 +20,7 @@
     'data': [
         'views/ks_account_invoice.xml',
         'views/report_invoice.xml',
+        'views/report_sale_order.xml',
 
     ],
 

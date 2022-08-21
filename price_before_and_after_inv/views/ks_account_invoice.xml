@@ -22,6 +22,27 @@
             </field>
         </record>
 
+
+        <record id="product_price_before_sale_view_form" model="ir.ui.view">
+            <field name="name">product.price.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+                    <attribute name="string">سعر الصيدلي</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
+                    <field name="default_product_price" invisible="0" string="سعر الجمهور"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                    <field name="price_diff" invisible="0" sum="Total" />
+                </xpath>
+            </field>
+        </record>
+
+
     </data>
 </odoo>
 
