@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+
+        <record id="medical_rep_view_tree" model="ir.ui.view">
+            <field name="name">medical.rep.tree</field>
+            <field name="model">medical.rep</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <tree string="Semak Sale Outdoor Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="medical_rep_form" model="ir.ui.view">
+            <field name="name">medical.rep.form</field>
+            <field name="model">medical.rep</field>
+            <field name="arch" type="xml">
+                <form string="Semak Sale Outdoor Form">
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+
+                            </group>
+                        </group>
+
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_orders_medical_rep" model="ir.actions.act_window">
+            <field name="name">Medical Rep</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">medical.rep</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="medical_rep_view_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a Sale Rep.
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem name="Medical Rep"
+                  id="menu_base_medical_rep_orders"
+                  parent="sale.menu_sale_config"
+                  action="action_orders_medical_rep"
+                  sequence="64"/>
+
+
+    </data>
+</odoo>

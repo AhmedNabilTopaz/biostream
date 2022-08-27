@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Bio stream Sales Rep",
+    'name': "Bio stream Medical Rep",
 
     'summary': """
-        Sales Re""",
+        Medical Rep""",
 
     'description': """
-        Sales Re
+        Medical Rep
     """,
 
     'author': "Ahmed Gaber",
@@ -20,9 +20,8 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/sales_rep_view.xml',
+        'views/medical_rep_view.xml',
         'views/partner_view.xml',
-        'views/sale_view.xml',
 
     ],
     # only loaded in demonstration mode

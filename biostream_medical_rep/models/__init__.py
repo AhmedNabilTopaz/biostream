@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from . import sales_rep
-
-from . import sale_order
+from . import meical_rep
 from . import res_partner

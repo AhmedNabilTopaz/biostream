@@ -10,16 +10,9 @@ class SaleOrder(models.Model):
 
     sale_rep_id = fields.Many2one('sales.rep', string="Sales Rep.")
 
-
-
-# class SaleReport(models.Model):
-#     _inherit = "sale.report"
-#
-#
-#     sale_rep_id = fields.Many2one('sales.rep', string="Sales Rep.")
-#
-#     def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
-#         fields['sale_rep_id'] = ',s.sale_rep_id as sale_rep_id'
-#         groupby += ',s.sale_outdoor_id'
-#
-#         return super(SaleReport, self)._query(with_clause, fields, groupby, from_clause)
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        res = super(SaleOrder, self).onchange_partner_id()
+        if self.partner_id:
+            self.sale_rep_id = self.partner_id.sale_rep_id.id
+        return res

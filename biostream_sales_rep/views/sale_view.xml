@@ -3,7 +3,7 @@
     <data>
 
 
-        <record id="view_order_form_brand_product_mix_factor" model="ir.ui.view">
+        <record id="view_order_form_sale_rep_inherit" model="ir.ui.view">
             <field name="name">brand.product.mix.sale.order.form.view</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
@@ -20,26 +20,6 @@
             </field>
         </record>
 
-
-<!--        <record id="view_sale_outdoor_id_search_inherit" model="ir.ui.view">-->
-<!--            <field name="name">view.sale.outdoor.search.inherit</field>-->
-<!--            <field name="mode">primary</field>-->
-<!--            <field name="model">sale.report</field>-->
-<!--            <field name="inherit_id" ref="sale.view_order_product_search"/>-->
-<!--            <field name="arch" type="xml">-->
-
-<!--                <xpath expr="//field[@name='product_id']" position="after">-->
-
-<!--                    <field name="sale_rep_id"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='partner_id']" position="after">-->
-
-<!--                    <filter string="Sale Rep" name="groupby_sale_rep_id"-->
-<!--                            context="{'group_by':'sale_rep_id'}"/>-->
-
-<!--                </xpath>-->
-<!--            </field>-->
-<!--        </record>-->
 
 
     </data>
