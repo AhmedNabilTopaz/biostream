@@ -163,4 +163,21 @@
         </field>
     </record>
 
+    <record id="view_order_form_inherit_confirm" model="ir.ui.view">
+        <field name="name">sale.order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@id='action_confirm']" position="replace"/>
+            <xpath expr="//button[@name='action_confirm']" position="replace"/>
+            <xpath expr="//button[@name='action_cancel']" position="before">
+                <button name="action_confirm" id="action_confirm" data-hotkey="v" string="Confirm" class="btn-primary"
+                        type="object" attrs="{'invisible': [('state', 'not in', ['draft'])]}"
+                        groups="biostream_vip_access_right.confirm_sale_order_group"/>
+
+            </xpath>
+        </field>
+    </record>
+
 </odoo>

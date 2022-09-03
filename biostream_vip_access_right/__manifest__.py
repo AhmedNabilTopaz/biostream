@@ -11,7 +11,7 @@
     3- partner creation restiction
     """,
     'version': '15.0',
-    'depends': ['account', 'purchase', 'base', 'sales_team', 'mrp', 'stock', 'sale', ],
+    'depends': ['account', 'purchase', 'base', 'sales_team', 'mrp', 'stock', 'sale','payment' ],
     'data': [
         'security/show_sale_cost_price_fields.xml',
         'security/ir.model.access.csv',

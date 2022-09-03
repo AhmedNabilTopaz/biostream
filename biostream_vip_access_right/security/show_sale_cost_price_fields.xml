@@ -28,4 +28,15 @@
         <field name="name">Product Category Creation Restriction</field>
         <field name="category_id" ref="base.module_category_usability"/>
     </record>
+
+    <record id="confirm_sale_order_group" model="res.groups">
+        <field name="name">Confirm Sale Order</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <record id="product_template_creation_restriction_group" model="res.groups">
+        <field name="name">Product Creation Restriction</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
 </odoo>
