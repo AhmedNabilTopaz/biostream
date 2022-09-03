@@ -11,8 +11,26 @@
             </xpath>
 
             <xpath expr="//sheet/notebook/page[@name='general_information']/group/group[@name='group_standard_price']/div[@name='pricing']"
+                   position="after">
+                <div>
+                    <field name="is_edit_sale_price" invisible="1"/>
+
+                </div>
+            </xpath>
+
+            <xpath expr="//sheet/notebook/page[@name='general_information']/group/group[@name='group_standard_price']/div[@name='pricing']"
                    position="attributes">
                 <attribute name="groups">biostream_vip_access_right.group_sale_price_show</attribute>
+
+                <attribute name="attrs">{'readonly': [('is_edit_sale_price','=',False)]}</attribute>
+
+            </xpath>
+
+            <xpath expr="//sheet/notebook/page[@name='general_information']/group/group[@name='group_standard_price']/div[@name='pricing']/field[@name='list_price']"
+                   position="attributes">
+
+                <attribute name="attrs">{'readonly': [('is_edit_sale_price','=',False)]}</attribute>
+
             </xpath>
 
 
@@ -77,15 +95,15 @@
             <xpath expr="//field[@name='lst_price']" position="attributes">
                 <attribute name="groups">biostream_vip_access_right.group_sale_price_show</attribute>
             </xpath>
-<!--            <xpath expr="//field[@name='standard_price']" position="attributes">-->
-<!--                <attribute name="groups">biostream_vip_access_right.group_cost_price_show</attribute>-->
-<!--            </xpath>-->
-<!--            <xpath expr="//group[@name='group_standard_price']/label[@for='lst_price']" position="attributes">-->
-<!--                <attribute name="groups">biostream_vip_access_right.group_sale_price_show</attribute>-->
-<!--            </xpath>-->
-<!--            <xpath expr="//group[@name='group_standard_price']/label[@for='standard_price']" position="attributes">-->
-<!--                <attribute name="groups">biostream_vip_access_right.group_cost_price_show</attribute>-->
-<!--            </xpath>-->
+            <!--            <xpath expr="//field[@name='standard_price']" position="attributes">-->
+            <!--                <attribute name="groups">biostream_vip_access_right.group_cost_price_show</attribute>-->
+            <!--            </xpath>-->
+            <!--            <xpath expr="//group[@name='group_standard_price']/label[@for='lst_price']" position="attributes">-->
+            <!--                <attribute name="groups">biostream_vip_access_right.group_sale_price_show</attribute>-->
+            <!--            </xpath>-->
+            <!--            <xpath expr="//group[@name='group_standard_price']/label[@for='standard_price']" position="attributes">-->
+            <!--                <attribute name="groups">biostream_vip_access_right.group_cost_price_show</attribute>-->
+            <!--            </xpath>-->
         </field>
     </record>
 
