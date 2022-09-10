@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="view_order_form_city_state_inherit" model="ir.ui.view">
+            <field name="name">city.state.sale.order.form.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="state_id" invisible="0" options="{'no_create_edit': True, 'no_create':True}"/>
+                    <field name="city"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_order_search_city_state_inherit" model="ir.ui.view">
+            <field name="name">city.state.sale.order.filter.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="state_id"/>
+                    <field name="city"/>
+                </xpath>
+
+                <xpath expr="//filter[@name='salesperson']" position="after">
+                    <filter string="State" name="state_id" domain="[]" context="{'group_by': 'state_id'}"/>
+                    <filter string="City" name="city" domain="[]" context="{'group_by': 'city'}"/>
+
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

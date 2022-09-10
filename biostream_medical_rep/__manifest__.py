@@ -22,6 +22,7 @@
         'security/ir.model.access.csv',
         'views/medical_rep_view.xml',
         'views/partner_view.xml',
+        'views/sale_view.xml',
 
     ],
     # only loaded in demonstration mode
