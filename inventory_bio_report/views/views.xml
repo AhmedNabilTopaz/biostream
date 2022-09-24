@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_account_followup_followup_line_form" model="ir.ui.view">
+            <field name="name">account_followup.followup.line.form</field>
+            <field name="model">account_followup.followup.line</field>
+            <field name="inherit_id" ref="account_followup.view_account_followup_followup_line_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='manual_action']" position="after">
+                    <field name="accountant_ids" widget="many2many_tags"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="stock_picking_form_custom" model="ir.ui.view">
+            <field name="name">stock.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//notebook//page[@name='extra']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <page string="Extra Lines">
+                        <field name="extra_lines_ids" readonly="1" force_save="1">
+                            <tree>
+                                <field name="product_line_id"/>
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
