@@ -153,10 +153,12 @@ class SaleOrder(models.Model):
                 subtype_id=self.env.ref('mail.mt_note').id
             )
 
-        moves.write({
-            'state_id': self.state_id.id or False,
-            'city': self.city or '',
-        })
+        for ord in self:
+
+            moves.write({
+                'state_id': ord.state_id.id or False,
+                'city': ord.city or '',
+            })
         return moves
 
 
