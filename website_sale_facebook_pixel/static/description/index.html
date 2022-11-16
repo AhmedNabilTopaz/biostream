@@ -1,0 +1,328 @@
+<section class="oe_container" style="color: #154577;">
+    <div class="row" style="padding: 0 10px;">
+        <div class="col-sm-12 col-xs-12">
+            <h2 class="oe_slogan" style="color: #154577; font-size: 64px; font-weight: 900; margin-top: 48px; margin-bottom: 48px;">eCommerce Facebook Pixel | Meta Pixel</h2>
+            <h2 class="oe_slogan" style="color: #154577;">Track customer activities with Facebook Pixel events on product or category website pages.</h2>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">Module Features</h3>
+            </div>
+            <div class="h2" style="font-size: 18px; color: #FFF;">
+                <div style="color: #154577; margin-left: 30px;">
+                    <div style="padding: 10px;">
+                        <i class="fa fa-check" style="color: #FEA621;"></i> Adds pixel events CompleteRegistration, ViewContent, Search, AddToCart, InitiateCheckout, AddPaymentInfo and Purchase
+                    </div>
+                </div>
+                <div style="color: #154577; margin-left: 30px;">
+                    <div style="padding: 10px;">
+                        <i class="fa fa-check" style="color: #FEA621;"></i> Includes the module: Website Facebook Pixel
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">The event <span class="font-weight-bold">ViewContent</span></h3>
+            </div>
+
+            <p class="lead ml32 oe_spaced">The event <span class="font-weight-bold">ViewContent</span> code activates when someone visits a product web page's URL or the product catalog page.</p>
+            <p class="ml32">The following event properties will be sent:</p>
+            <ul class="ml32">
+                <li><span class="font-weight-bold">content_type:</span> product</li>
+                <li><span class="font-weight-bold">content_name:</span> the product name</li>
+                <li><span class="font-weight-bold">content_category:</span> the product website category name</li>
+                <li><span class="font-weight-bold">content_ids:</span> the list of product template or product variant ids (it can be defined in the <span class="font-weight-bold">Website Settings</span>)</li>
+                <li><span class="font-weight-bold">value:</span> the product template sale price</li>
+                <li><span class="font-weight-bold">currency:</span> the website default currency</li>
+            </ul>
+            <div class="p-0 offset-1 col-10 offset-xl-2 col-xl-8 oe_demo oe_screenshot oe_spaced">
+                <img src="facebook_pixel_viewcontent_code.png" style="max-height: 100%;" alt="Odoo 15.0 Facebook Pixel event AddToCart on the product page">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">The event <span class="font-weight-bold">Search</span></h3>
+            </div>
+
+            <p class="lead ml32 oe_spaced">The event <span class="font-weight-bold">Search</span> code activates when a visitor has perfomed a search in the product catalog on a website. </p>
+            <p class="ml32">The following event properties will be sent:</p>
+            <ul class="ml32">
+                <li><span class="font-weight-bold">search_string:</span> entered search string</li>
+                <li><span class="font-weight-bold">content_type:</span> product</li>
+                <li><span class="font-weight-bold">content_ids:</span> the list of product template or product variant ids (it can be defined in the Website Settings)</li>
+                <li><span class="font-weight-bold">currency:</span> the website default currency</li>
+            </ul>
+            <div class="p-0 offset-1 col-10 offset-xl-2 col-xl-8 oe_demo oe_screenshot oe_spaced">
+                <img src="facebook_pixel_search_code.png" style="max-height: 100%;" alt="Odoo 15.0 Facebook Pixel event Search on the product page">
+            </div>
+            <div class="alert alert-info ml32 oe_spaced" role="alert">
+                The module <a href="https://apps.odoo.com/apps/modules/15.0/facebook_shop/">Facebook Catalog Product Feed</a> allows to pair and associate a pixel with your product catalog using the Facebook Catalog Manager.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">The event <span class="font-weight-bold">AddToCart</span></h3>
+            </div>
+
+            <p class="lead ml32 oe_spaced">The event <span class="font-weight-bold">AddToCart</span> code will be added on a product page. It will be fired on the clicking button <span class="badge badge-primary">Add to cart</span>.</p>
+            <p class="ml32">The following event properties will be sent:</p>
+            <ul class="ml32">
+                <li><span class="font-weight-bold">content_type:</span> product</li>
+                <li><span class="font-weight-bold">content_name:</span> the product name</li>
+                <li><span class="font-weight-bold">content_category:</span> the product website category name</li>
+                <li><span class="font-weight-bold">content_ids:</span> the list of product template or product variant ids (it can be defined in the <span class="font-weight-bold">Website Settings</span>)</li>
+                <li><span class="font-weight-bold">value:</span> the product template sale price</li>
+                <li><span class="font-weight-bold">currency:</span> the website default currency</li>
+            </ul>
+            <div class="p-0 offset-1 col-10 offset-xl-2 col-xl-8 oe_demo oe_screenshot oe_spaced">
+                <img src="facebook_pixel_addtocart_code.png" style="max-height: 100%;" alt="Odoo 15.0 Facebook Pixel event AddToCart on the product page">
+            </div>
+
+            <p class="lead ml32 oe_spaced">The module also adds the event <span class="font-weight-bold">AddToCart</span> to the webpage /shop (product list). To enable this feature activate the option <span class="font-weight-bold">Add to Cart</span> in the <span class="font-weight-bold">Customize</span> website menu.</p>
+            <div class="offset-1 col-10 offset-xl-2 col-xl-8 oe_demo oe_screenshot oe_spaced">
+                <img src="product_list_add_to_cart.png" style="max-height: 100%;" alt="Odoo 15.0 enable option Add to Cart on a products webpage">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">The event <span class="font-weight-bold">InitiateCheckout</span></h3>
+            </div>
+
+            <p class="lead ml32 oe_spaced">The event <span class="font-weight-bold">InitiateCheckout</span> code will be added on the Cart page. It will be fired on the clicking button <span class="badge badge-primary">Process Checkout</span>.</p>
+            <p class="ml32">The following event properties will be sent:</p>
+            <ul class="ml32">
+                <li><span class="font-weight-bold">content_type:</span> product</li>
+                <li><span class="font-weight-bold">content_ids:</span> list of product template or product variant ids (it can be defined in the Website Settings)</li>
+                <li><span class="font-weight-bold">contents:</span> list of value pairs of product template (or product variant) id and product quantity</li>
+                <li><span class="font-weight-bold">value:</span> the total amount of products in the Cart</li>
+                <li><span class="font-weight-bold">currency:</span> the default pricelist currency</li>
+                <li><span class="font-weight-bold">num_items:</span> number of product lines in the Cart</li>
+            </ul>
+            <div class="p-0 offset-1 col-10 offset-xl-2 col-xl-8 oe_demo oe_screenshot oe_spaced">
+                <img src="facebook_pixel_initiatecheckout_code.png" style="max-height: 100%;" alt="Odoo 15.0 Facebook Pixel event InitiateCheckout on the Cart page">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">The event <span class="font-weight-bold">AddPaymentInfo</span></h3>
+            </div>
+
+            <p class="lead ml32 oe_spaced">The event <span class="font-weight-bold">AddPaymentInfo</span> code activates when payment information is added and a visitor clicks the <span class="badge badge-primary">Next</span> button on the billing address webpage.</p>
+            <p class="ml32">The following event properties will be sent:</p>
+            <ul class="ml32">
+                <li><span class="font-weight-bold">content_type:</span> product</li>
+                <li><span class="font-weight-bold">content_ids:</span> list of product template or product variant ids (it can be defined in the Website Settings)</li>
+                <li><span class="font-weight-bold">contents:</span> list of value pairs of product template (or product variant) id and product quantity</li>
+                <li><span class="font-weight-bold">value:</span> the order total amount</li>
+                <li><span class="font-weight-bold">currency:</span> the order pricelist currency</li>
+            </ul>
+            <div class="p-0 offset-1 col-10 offset-xl-2 col-xl-8 oe_demo oe_screenshot oe_spaced">
+                <img src="facebook_pixel_addpaymentinfo_code.png" alt="Odoo 15.0 the Facebook Pixel event AddPaymentInfo on the checkout web page">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">The event <span class="font-weight-bold">Purchase</span></h3>
+            </div>
+
+            <p class="lead ml32 oe_spaced">The event <span class="font-weight-bold">Purchase</span> code will be added on the Confirmation page. It will be activated on the visiting the final page of the checkout process.</p>
+            <p class="ml32">The following event properties will be sent:</p>
+            <ul class="ml32">
+                <li><span class="font-weight-bold">content_type:</span> product</li>
+                <li><span class="font-weight-bold">content_ids:</span> list of product template or product variant ids (it can be defined in the Website Settings)</li>
+                <li><span class="font-weight-bold">contents:</span> list of value pairs of product template (or product variant) id and ordered quantity</li>
+                <li><span class="font-weight-bold">num_items:</span> number of product lines in the Sale Order</li>
+                <li><span class="font-weight-bold">value:</span> the total amount of a Sale Order</li>
+                <li><span class="font-weight-bold">currency:</span> the Sale Order pricelist currency</li>
+            </ul>
+            <div class="p-0 offset-1 col-10 offset-xl-2 col-xl-8 oe_demo oe_screenshot oe_spaced">
+                <img src="facebook_pixel_purchase_code.png" alt="Odoo 15.0 Facebook Pixel event Purchase on the confirmation page">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row">
+        <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+            <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">Advantages</h3>
+        </div>
+    </div>
+    <div class="row" style="padding: 0 10px;">
+        <div class="card bg-info col-12 col-sm-6 col-lg-3" style="border-radius: 15px; padding: 0 5px;">
+            <div class="card-body text-center" style="background-color: inherit !important;">
+                <h3 class="card-title">
+                    <i class="fa fa-toggle-on pr-2"></i>
+                    <span> Add Pixel</span>
+                </h3>
+                <p class="card-text text-white"><small>Activate the Facebook Pixel easily</small></p>
+            </div>
+        </div>
+        <div class="card bg-success col-12 col-sm-6 col-lg-3" style="border-radius: 15px; padding: 0 5px;">
+            <div class="card-body text-center" style="background-color: inherit !important;">
+                <h3 class="card-title">
+                    <i class="fa fa-globe pr-2"></i>
+                    <span> Multi</span>
+                </h3>
+                <p class="card-text text-white"><small>Multi-Website support</small></p>
+            </div>
+        </div>
+        <div class="card bg-primary col-12 col-sm-6 col-lg-3" style="border-radius: 15px; padding: 0 5px;">
+            <div class="card-body text-center" style="background-color: inherit !important;">
+                <h3 class="card-title">
+                    <i class="fa fa-search pr-2"></i>
+                    <span> Try me</span>
+                </h3>
+                <p class="card-text text-white"><small>Demo & Test. Click on Live Preview</small></p>
+            </div>
+        </div>
+        <div class="card bg-warning col-12 col-sm-6 col-lg-3" style="border-radius: 15px; padding: 0 5px;">
+            <div class="card-body text-center" style="background-color: inherit !important;">
+                <h3 class="card-title">
+                    <i class="fa fa-support pr-2"></i>
+                    <span> Support</span>
+                </h3>
+                <p class="card-text text-white"><small>Free 30 days support and 180 days bug-fixing</small></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+            <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">Watch the Video Tutorial</h3>
+        </div>
+            <div class="text-center">
+                <div class="s_panel_video" data-video-id="wd7ozl4JgiA?rel=0" style="cursor:pointer; margin: 50px 0px;">
+                    <img class="s_tooltip_tabs_tooltip_image s_figure_link img-fluid pb0" src="banner_youtube.png" alt="eCommerce Facebook Pixel | Meta Pixel youtube video tutorial" style="max-width:50%;">
+                </div>
+                <a href="https://youtu.be/wd7ozl4JgiA" target="_blank" class="btn btn-danger" role="button">Watch on Youtube</a>
+            </div> 
+    </div>
+</section>
+
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+                <h3 class="oe_slogan" style="background-color: #fea621; border-color: #fea621; color: #FFFFFF; padding: 5px 28px; border-radius: 15px 0 15px 0; opacity: 1;">Related Modules</h3>
+            </div>
+        </div>
+        <div class="col-sm-4 offset-xs-2 col-xs-8">
+            <a href="https://www.odoo.com/apps/modules/15.0/website_sale_google_analytics_4/">
+                <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; border-radius: 5px;">
+                    <img src="banner_website_sale_google_analytics_4.png" style="width: 100%; border-radius: 5px 5px 0 0;">
+                    <div class="container" style="background-color: #efefef; border-radius: 5px; padding: 0 10px; height: 86px; overflow: hidden;">
+                        <h4 class="mt16"><span class="font-weight-bold">Google Analytics 4 eCommerce</span></h4>
+                        <p class="small">
+                            Google Analytics 4 for eCommerce | GA4 Retail and Ecommerce Events
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4 offset-xs-2 col-xs-8">
+            <a href="https://www.odoo.com/apps/modules/15.0/product_facebook_category/">
+                <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; border-radius: 5px;">
+                    <img src="banner_product_facebook_category.png" style="width: 100%; border-radius: 5px 5px 0 0;">
+                    <div class="container" style="background-color: #efefef; border-radius: 5px; padding: 0 10px; height: 86px; overflow: hidden;">
+                        <h4 class="mt16"><span class="font-weight-bold">Facebook Product Category</span></h4>
+                        <p class="small">
+                            Assigning Facebook product categories to your Odoo products
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4 offset-xs-2 col-xs-8">
+            <a href="https://www.odoo.com/apps/modules/15.0/facebook_shop/">
+                <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; border-radius: 5px;">
+                    <img src="banner_facebook_shop.png" style="width: 100%; border-radius: 5px 5px 0 0;">
+                    <div class="container" style="background-color: #efefef; border-radius: 5px; padding: 0 10px; height: 86px; overflow: hidden;">
+                        <h4 class="mt16"><span class="font-weight-bold">Facebook Catalog Product Feed</span></h4>
+                        <p class="small">
+                            Product catalogue to advertise or sell items on Facebook and Instagram. Data Feed | Data Import | Data Source | FB Product Catalog
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="alert alert-warning" role="alert">
+                The functionality of the module may partially or completely not work if you use website theme customizations or have installed custom modules that change standard website pages and views. Please contact us for more information and advice.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container" style="background-color: #FEA621; border-color: #fea621; padding: 12px 28px; border-radius: 15px 0 15px 0;">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-md-12">
+                <h3 class="oe_slogan" style="color: #FFF; width: 100%; opacity: 1;">Support, customizations, and development</h3>
+            </div>
+            <div class="col-md-12 text-center oe_mb32">
+                <h3><span class="font-weight-bold">Contact us:</span></h3>
+                <h4><a href="mailto: support@garazd.biz">support@garazd.biz</a></h4>
+                <h4><a href="https://garazd.biz/contactus">https://garazd.biz/contactus</a></h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="row oe_spaced">
+        <div class="col-sm-12 col-xs-12">
+            <div class="h5">
+Version: 15.0.1.0.1
+            </div>
+        </div>
+    </div>
+</section>
+
