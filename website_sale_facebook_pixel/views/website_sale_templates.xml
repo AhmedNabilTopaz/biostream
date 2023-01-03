@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    
+    <template id="signup" name="Meta Pixel CompleteRegistration Sign Up" inherit_id="auth_signup.signup">
+        <xpath expr="//div[hasclass('oe_login_buttons')]/button" position="attributes">
+            <attribute name="onclick" add="fbpClick()" separator=";"/>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_login_buttons')]" position="after">
+            <script type="text/javascript">
+                function fbpClick() {<t t-if="website and website.facebook_pixel_key and not editable">
+                    fbq('track', 'CompleteRegistration',
+                        {content_name: '<t t-esc="website.sanitize_name(main_object.name)"/>'});
+                </t>};
+            </script>
+        </xpath>
+    </template>
+
+    
+    <template id="product" name="Meta Pixel ViewContent Product" inherit_id="website_sale.product">
+        <xpath expr="//t[@t-set='additional_title']" position="after">
+            <script t-if="website and website.facebook_pixel_key and not editable">
+                fbq('track', 'ViewContent', {
+                    content_name: '<t t-esc="website.sanitize_name(main_object.name)"/>',
+                    <t t-if="main_object.public_categ_ids">content_category: '<t t-esc="website.sanitize_name(main_object.public_categ_ids[:1].name)"/>',</t>
+                    content_type: 'product',
+                    content_ids: ['<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="main_object.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="product_variant.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'name'" t-esc="website.sanitize_name(main_object.name)"/>'],
+                    value: '<t t-esc="combination_info['list_price']"/>',
+                    currency: '<t t-esc="website.currency_id.name"/>'
+                });
+            </script>
+        </xpath>
+    </template>
+
+    
+    <template id="products_view_item_list" name="Meta Pixel ViewContent Product List" inherit_id="website_sale.products">
+        <xpath expr="//div[@id='products_grid']" position="after">
+            <t t-foreach="bins" t-as="line" t-if="website and website.facebook_pixel_key and not editable and bins">
+                <t t-foreach="line" t-as="item">
+                    <t t-set="combination_info" t-value="item['product']._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)" />
+                    <script>
+                        fbq('track', 'ViewContent', {
+                            content_name: '<t t-esc="website.sanitize_name(item['product'].name)"/>',
+                            <t t-if="item['product'].public_categ_ids">content_category: '<t t-esc="website.sanitize_name(item['product'].public_categ_ids[:1].name)"/>',</t>
+                            content_type: 'product',
+                            content_ids: ['<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="item['product'].id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="item['product'].product_variant_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'name'" t-esc="website.sanitize_name(item['product'].name)"/>'],
+                            value: '<t t-esc="combination_info['list_price']"/>',
+                            currency: '<t t-esc="website.currency_id.name"/>'
+                        });
+                    </script>
+                </t>
+            </t>
+        </xpath>
+    </template>
+
+    
+    <template id="products_search" name="Meta Pixel Search Product List" inherit_id="website_sale.products">
+        <xpath expr="//div[hasclass('o_wsale_products_main_row')]" position="after">
+            <script t-if="website and website.facebook_pixel_key and not editable and search">
+                fbq('track', 'Search', {
+                    search_string: '<t t-esc="website.sanitize_name(search)"/>',
+                    content_type: 'product',
+                    <t t-if="category">content_category: '<t t-esc="website.sanitize_name(category.name)"/>',</t>
+                    content_ids: [<t t-foreach="products" t-as="product">'<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="product.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="product.product_variant_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'name'" t-esc="website.sanitize_name(product.name)"/>',</t>],
+                    currency: '<t t-esc="website.currency_id.name"/>'
+                };
+            </script>
+        </xpath>
+    </template>
+
+    
+    <template id="product_add_to_cart" name="Meta Pixel AddToCart" inherit_id="website_sale.product">
+        <xpath expr="//a[@id='add_to_cart']" position="attributes">
+            <attribute name="onclick" add="fbpClick()" separator=";"/>
+        </xpath>
+        <xpath expr="//a[@id='add_to_cart']" position="after">
+            <script type="text/javascript">
+                function fbpClick() {<t t-if="website and website.facebook_pixel_key and not editable">
+                    fbq('track', 'AddToCart', {
+                        content_name: '<t t-esc="website.sanitize_name(main_object.name)"/>',
+                        content_type: 'product',
+                        <t t-if="main_object.public_categ_ids">content_category: '<t t-esc="website.sanitize_name(main_object.public_categ_ids[:1].name)"/>',</t>
+                        content_ids: ['<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="main_object.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="product_variant.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'name'" t-esc="website.sanitize_name(main_object.name)"/>'],
+                        value: '<t t-esc="combination_info['list_price']"/>',
+                        currency: '<t t-esc="website.currency_id.name"/>'
+                    });
+                </t>};
+            </script>
+        </xpath>
+    </template>
+
+    
+    <template id="products_add_to_cart" name="Meta Pixel AddToCart Product List" inherit_id="website_sale.products_add_to_cart">
+        <xpath expr="//a[hasclass('a-submit')]" position="attributes">
+            <attribute name="t-attf-onclick">fbpClick('{{ product_variant_id if website.fb_pixel_property_content_ids_type == 'product_id' else product.id }}', '{{ product.public_categ_ids[:1].name if product.public_categ_ids else ''}}', '{{ combination_info['list_price'] }}')</attribute>
+        </xpath>
+    </template>
+    <template id="products_add_to_cart_script" name="Meta Pixel AddToCart Script Product List" inherit_id="website_sale.products">
+        <xpath expr="//div[@id='products_grid']" position="after">
+            <script type="text/javascript">
+                function fbpClick(fbp_product_id, fbp_category, fbp_value) {<t t-if="website and website.facebook_pixel_key and not editable">
+                    fbq('track', 'AddToCart', {
+                        content_type: 'product',
+                        content_category: fbp_category,
+                        value: fbp_value,
+                        currency: '<t t-esc="website.currency_id.name"/>',
+                        content_ids: [fbp_product_id]
+                    });
+                </t>};
+            </script>
+        </xpath>
+    </template>
+
+    
+    <template id="short_cart_summary" name="Meta Pixel InitiateCheckout Short Cart" inherit_id="website_sale.short_cart_summary">
+        <xpath expr="//a[@href='/shop/checkout?express=1']" position="attributes">
+            <attribute name="onclick" add="fbpClick()" separator=";"/>
+        </xpath>
+    </template>
+    <template id="cart" name="Meta Pixel InitiateCheckout Cart" inherit_id="website_sale.cart">
+        <xpath expr="//a[@href='/shop/checkout?express=1']" position="attributes">
+            <attribute name="onclick" add="fbpClick()" separator=";"/>
+        </xpath>
+        <xpath expr="//div[hasclass('d-xl-none')]/a[@href='/shop/checkout?express=1']" position="attributes">
+            <attribute name="onclick" add="fbpClick()" separator=";"/>
+        </xpath>
+        <xpath expr="//div[@id='o_cart_summary']" position="after">
+            <script type="text/javascript">
+                function fbpClick() {<t t-if="website and website.facebook_pixel_key and not editable">
+                    fbq('track', 'InitiateCheckout', {
+                        content_type: 'product',
+                        content_ids: [<t t-foreach="website_sale_order.order_line" t-as="line">'<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="line.product_id.product_tmpl_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="line.product_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'name'" t-esc="website.sanitize_name(line.product_id.name)"/>',</t>],
+                        contents: [<t t-foreach="website_sale_order.order_line" t-as="line">{
+                            id: '<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="line.product_id.product_tmpl_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="line.product_id.id"/>',
+                            quantity: <t t-esc="line.product_uom_qty"/>
+                        },</t>],
+                        value: '<t t-esc="website_sale_order.amount_total"/>',
+                        currency: '<t t-esc="website_sale_order.pricelist_id.currency_id.name"/>',
+                        num_items: <t t-esc="len(website_sale_order.website_order_line)"/>
+                    });
+                </t>};
+            </script>
+        </xpath>
+    </template>
+
+    
+    <template id="address" name="Meta Pixel AddPaymentInfo Address" inherit_id="website_sale.address">
+        <xpath expr="//a[hasclass('a-submit-loading')]" position="attributes">
+            <attribute name="onclick" add="fbpClick()" separator=";"/>
+        </xpath>
+        <xpath expr="//a[hasclass('a-submit-loading')]" position="after">
+            <script type="text/javascript">
+                function fbpClick() {<t t-if="website and website.facebook_pixel_key and not editable and mode[1] == 'billing'">
+                    fbq('track', 'AddPaymentInfo', {
+                        value: '<t t-esc="website_sale_order.amount_total"/>',
+                        currency: '<t t-esc="website_sale_order.pricelist_id.currency_id.name"/>',
+                        content_type: 'product',
+                        content_ids: [<t t-foreach="website_sale_order.order_line" t-as="line">'<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="line.product_id.product_tmpl_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="line.product_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'name'" t-esc="website.sanitize_name(line.product_id.name)"/>',</t>],
+                        contents: [<t t-foreach="website_sale_order.order_line" t-as="line">{
+                            id: '<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="line.product_id.product_tmpl_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="line.product_id.id"/>',
+                            quantity: <t t-esc="line.product_uom_qty"/>
+                        },</t>]
+                    });
+                </t>};
+            </script>
+        </xpath>
+    </template>
+
+    
+    <template id="confirmation" name="Meta Pixel Purchase" inherit_id="website_sale.confirmation">
+        <xpath expr="//div" position="inside">
+            <script t-if="website and website.facebook_pixel_key and not editable" type="text/javascript">
+                fbq('track', 'Purchase', {
+                    value: '<t t-esc="order.amount_total"/>',
+                    currency: '<t t-esc="order.pricelist_id.currency_id.name"/>',
+                    num_items: <t t-esc="len(order.order_line)"/>,
+                    content_type: 'product',
+                    content_ids: [<t t-foreach="order.order_line" t-as="line">'<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="line.product_id.product_tmpl_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="line.product_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'name'" t-esc="website.sanitize_name(line.product_id.name)"/>',</t>],
+                    contents: [<t t-foreach="order.order_line" t-as="line">{
+                        id: '<t t-if="website.fb_pixel_property_content_ids_type == 'template_id'" t-esc="line.product_id.product_tmpl_id.id"/><t t-elif="website.fb_pixel_property_content_ids_type == 'product_id'" t-esc="line.product_id.id"/>',
+                        quantity: <t t-esc="line.product_uom_qty"/>
+                    },</t>]
+                });
+            </script>
+        </xpath>
+    </template>
+
+</odoo>

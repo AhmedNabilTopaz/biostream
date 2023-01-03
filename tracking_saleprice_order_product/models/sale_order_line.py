@@ -92,27 +92,28 @@ class SaleOrderline(models.Model):
         order_line = self
         now = self.format_date(fields.Datetime.now())
         if order_line:
-            content = "Line Deleted by : " + str(self.env.user.name) + " - At : " + str(now) + "<br/>"
+            for rec in order_line:
+                content = "Line Deleted by : " + str(self.env.user.name) + " - At : " + str(now) + "<br/>"
 
-            if order_line.product_id:
-                content = content + "  \u2022 Deleted Product is : " + str(order_line.product_id.name) + "<br/>"
+                if rec.product_id:
+                    content = content + "  \u2022 Deleted Product is : " + str(rec.product_id.name) + "<br/>"
 
-            if order_line.name:
-                content = content + "  \u2022 Deleted Description  is  :  " + " >>> " + str(order_line.name) + "<br/>"
+                if rec.name:
+                    content = content + "  \u2022 Deleted Description  is  :  " + " >>> " + str(rec.name) + "<br/>"
 
-            if order_line.product_uom_qty:
-                content = content + "  \u2022 Deleted Quantity is : " + str(order_line.product_uom_qty) + "<br/>"
+                if rec.product_uom_qty:
+                    content = content + "  \u2022 Deleted Quantity is : " + str(rec.product_uom_qty) + "<br/>"
 
-            if order_line.default_product_price:
-                content = content + "  \u2022  Deleted سعر الجمهور :  " + str(order_line.default_product_price) + "<br/>"
+                if rec.default_product_price:
+                    content = content + "  \u2022  Deleted سعر الجمهور :  " + str(rec.default_product_price) + "<br/>"
 
-            if order_line.price_unit:
-                content = content + "  \u2022 Deleted سعر الصيدلي :  " + str(order_line.price_unit) + "<br/>"
+                if rec.price_unit:
+                    content = content + "  \u2022 Deleted سعر الصيدلي :  " + str(rec.price_unit) + "<br/>"
 
-            if order_line.price_diff:
-                content = content + "  \u2022 Deleted Discount is: " + str(order_line.price_diff) + "<br/>"
+                if rec.price_diff:
+                    content = content + "  \u2022 Deleted Discount is: " + str(rec.price_diff) + "<br/>"
 
-            order_line.order_id.message_post(body=content)
+                rec.order_id.message_post(body=content)
         result = super(SaleOrderline, self).unlink()
         print("LLLLLLL",result)
         return result
