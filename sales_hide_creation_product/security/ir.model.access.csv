@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sales_hide_creation_product_sales_hide_creation_product,sales_hide_creation_product.sales_hide_creation_product,model_sales_hide_creation_product_sales_hide_creation_product,base.group_user,1,1,1,1
