@@ -47,9 +47,8 @@ class SaleOrderline(models.Model):
 
         if vals.get("price_diff"):
             content = content + "  \u2022 Discount: " + str(vals.get("price_diff")) + "<br/>"
-
-
-        res.order_id.message_post(body=content)
+        if content:
+            res.order_id.message_post(body=content)
 
         return res
 
