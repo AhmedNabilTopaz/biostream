@@ -47,8 +47,10 @@ class SaleOrderline(models.Model):
 
         if vals.get("price_diff"):
             content = content + "  \u2022 Discount: " + str(vals.get("price_diff")) + "<br/>"
-        if content:
+        try:
             res.order_id.message_post(body=content)
+        except:
+            pass
 
         return res
 
@@ -77,8 +79,11 @@ class SaleOrderline(models.Model):
 
         if vals.get("price_diff"):
             content = content + "  \u2022 Discount: " + str(vals.get("price_diff")) + "<br/>"
-        if content:
+        try:
             self.order_id.message_post(body=content)
+        except:
+            pass
+        
 
         return res
 
