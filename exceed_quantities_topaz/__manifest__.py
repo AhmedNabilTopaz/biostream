@@ -10,7 +10,7 @@
     'depends': ['account', 'purchase', 'sale', 'stock'],
     'sequence': -100,
     'data': [
-        # 'report/po_template.xml'
+        'views/product_product_views.xml'
     ],
     'license': 'LGPL-3'
 

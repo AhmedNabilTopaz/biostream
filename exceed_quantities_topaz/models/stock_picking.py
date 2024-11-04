@@ -27,10 +27,18 @@ class Picking(models.Model):
 
     def button_validate(self):
         for picking in self:
-            for line in picking.move_lines:
-                if line.quantity_done> line.product_qty:
-                    raise ValidationError(
-                        _('Done Quantity cannot exceed the Orderd Quaintity of {productname}'.format(
-                            productname=line.product_id.display_name)))
+            if picking.picking_type_code and picking.picking_type_code == 'incoming':
+                for line in picking.move_lines:
+                    if line.quantity_done> line.product_qty and not line.product_id.allow_receiving_more:
+                        raise ValidationError(
+                            _('Done Quantity cannot exceed the Orderd Quaintity of {productname}'.format(
+                                productname=line.product_id.display_name)))
+
+            elif picking.picking_type_code and picking.picking_type_code == 'outgoing':
+                for line in picking.move_lines:
+                    if line.quantity_done> line.product_qty and not line.product_id.allow_delivery_more:
+                        raise ValidationError(
+                            _('Done Quantity cannot exceed the Orderd Quaintity of {productname}'.format(
+                                productname=line.product_id.display_name)))
 
         return super().button_validate()
