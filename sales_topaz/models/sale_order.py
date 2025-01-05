@@ -32,12 +32,12 @@ class SalesOrderLine(models.Model):
         for line in self:
             if line.product_id :
                 # Get stock location tied to the selected warehouse
-                # stock_location = line.order_id.warehouse_id.lot_stock_id
+                stock_location = line.order_id.warehouse_id.lot_stock_id
                 # if stock_location:
                     # Compute the available quantity from stock quants
                 quants = self.env['stock.quant'].search([
                     ('product_id', '=', line.product_id.id),
-                    # ('location_id', '=', stock_location.id)
+                    ('location_id', '=', stock_location.id)
                 ])
                 line.available_qty = sum(quants.mapped('quantity'))
             else:
