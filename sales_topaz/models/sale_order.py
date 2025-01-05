@@ -42,5 +42,5 @@ class SalesOrderLine(models.Model):
                 line.available_qty = sum(quants.mapped('quantity'))
             else:
                 line.available_qty = 0.0
-            # else:
+                # else:
             #     line.available_qty = 0.0
