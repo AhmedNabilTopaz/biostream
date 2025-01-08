@@ -39,7 +39,7 @@ class SalesOrderLine(models.Model):
                     ('product_id', '=', line.product_id.id),
                     ('location_id', '=', stock_location.id)
                 ])
-                line.available_qty = sum(quants.mapped('quantity'))
+                line.available_qty = sum(quants.mapped('available_quantity'))
             else:
                 line.available_qty = 0.0
                 # else:
