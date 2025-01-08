@@ -100,8 +100,12 @@
                         </thead>
                         <tbody>
                             <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
+                            <t t-set="sumtotal" t-value="0"/>
                             <tr t-foreach="lines" t-as="move">
+
                                 <t t-if="move.quantity_done>0">
+                                    <t t-set="sumtotal" t-value="sumtotal+move.sale_line_id.price_total"/>
+
                                     <td>
                                         <span t-field="move.product_id"/>
                                         <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
@@ -128,8 +132,15 @@
                                     <td>
                                         <span t-field="move.sale_line_id.price_total"/>
                                     </td>
-
                                 </t>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    Total
+                                </td>
+                                <td>
+                                    <t t-esc="sumtotal"/>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
