@@ -90,9 +90,9 @@
                                 <th name="th_sm_quantity">
                                     <strong>سعر الصيدلي</strong>
                                 </th>
-                                <th name="th_sm_quantity">
-                                    <strong>Discount</strong>
-                                </th>
+<!--                                <th name="th_sm_quantity">-->
+<!--                                    <strong>Discount</strong>-->
+<!--                                </th>-->
                                 <th name="th_sm_quantity">
                                     <strong>Total</strong>
                                 </th>
@@ -126,16 +126,16 @@
                                     <td>
                                         <span t-field="move.sale_line_id.price_unit"/>
                                     </td>
-                                    <td>
-                                        <span t-field="move.sale_line_id.price_diff"/>
-                                    </td>
+<!--                                    <td>-->
+<!--                                        <span t-field="move.sale_line_id.price_diff"/>-->
+<!--                                    </td>-->
                                     <td>
                                         <span t-field="move.sale_line_id.price_total"/>
                                     </td>
                                 </t>
                             </tr>
                             <tr>
-                                <td colspan="6">
+                                <td colspan="5">
                                     Total
                                 </td>
                                 <td>
