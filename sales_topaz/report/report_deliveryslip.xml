@@ -139,7 +139,7 @@
                                     Total
                                 </td>
                                 <td>
-                                    <t t-esc="sumtotal"/>
+                                    <t t-esc="round(sumtotal,2)"/>
                                 </td>
                             </tr>
                         </tbody>
