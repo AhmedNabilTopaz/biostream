@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="grid_purchaseorder_inherit_topaz" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_barcode_group" class="text-left">Barcode</th>
+        </xpath>
+        <xpath expr="//td[@id='product']" position="before">
+            <td name="td_barcode">
+                <!--                <span t-field="line.z_package_barcode"/>-->
+                <div t-field="line.product_tmpl_id.barcode"
+                     t-options="{'widget': 'barcode', 'symbology': 'EAN13', 'width': 300, 'height': 50, 'img_style': 'width:100%;height:35%;'}"/>
+                <strong t-field="line.product_tmpl_id.barcode"/>
+            </td>
+        </xpath>
+    </template>
+    <template id="grid_purchasequtaion_inherit_topaz" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_barcode_group" class="text-left">Full Barcode</th>
+        </xpath>
+        <xpath expr="//td[@id='product']" position="before">
+            <td name="td_barcode">
+                <!--                <span t-field="order_line.z_package_barcode"/>-->
+                <div t-field="order_line.product_tmpl_id.barcode"
+                     t-options="{'widget': 'barcode', 'symbology': 'EAN13', 'width': 300, 'height': 50, 'img_style': 'width:100%;height:35%;'}"/>
+                <strong t-field="order_line.product_tmpl_id.barcode"/>
+            </td>
+        </xpath>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="sales_new_fields" model="ir.ui.view">
+            <field name="name">Sales.new.fields</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!-- Adding new field bellow Payment Terms -->
+                <field name="payment_term_id" position="after">
+                    <field name="sales_man_id"/>
+                    <field name="sales_supervisor_id"/>
+                    <field name="is_delivered" invisible="1"/>
+                </field>
+                 <xpath expr="//notebook/page[1]/field[1]/tree/field[@name='product_uom_qty']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', 'in', ['sale', 'done'])]}</attribute>
+                </xpath>
+                <!-- Modify Quantity to be readonly if state = confirmed or done  -->
+                <xpath expr="//notebook/page[1]/field[1]/tree/field[@name='product_uom_qty']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', 'in', ['sale', 'done'])]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[1]/tree" position="attributes">
+                    <attribute name="editable">bottom</attribute>
+                    <attribute name="attrs">{'readonly': [('state', 'in', ['sale', 'done'])]}</attribute>
+                </xpath>
+
+                <!-- Modify Cancel button to be invisible if state = delivered  -->
+                <xpath expr="//button[@name='action_cancel']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_delivered', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page[1]/field[1]/tree/field[@name='product_uom_qty']" position="after">
+                    <field name="available_qty"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_quotation_tree_with_onboarding_new_fields" model="ir.ui.view">
+            <field name="name">view_quotation_tree_with_onboarding_new_fields</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                <!-- Adding new field bellow Payment Terms -->
+                <field name="name" position="after">
+                    <field name="is_delivered"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
