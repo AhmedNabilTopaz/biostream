@@ -130,7 +130,7 @@
 <!--                                        <span t-field="move.sale_line_id.price_diff"/>-->
 <!--                                    </td>-->
                                     <td>
-                                        <span t-field="round(move.sale_line_id.price_unit*move.quantity_done,2)"/>
+                                        <span t-esc="round(move.sale_line_id.price_unit*move.quantity_done,2)"/>
                                     </td>
                                 </t>
                             </tr>
